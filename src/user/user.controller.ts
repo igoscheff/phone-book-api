@@ -1,11 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, ValidationPipe } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
-import { UserService } from './user.service';
-import { IUser } from './interfaces/user.interface';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, ValidationPipe } from '@nestjs/common'
+import { AuthGuard } from '@nestjs/passport'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+
+import { UserService } from './user.service'
+import { IUser } from './interfaces/user.interface'
+import { CreateUserDto } from './dto/create-user.dto'
+import { UpdateUserDto } from './dto/update-user.dto'
 
 @ApiTags('User')
+@ApiBearerAuth('JWT')
+@UseGuards(AuthGuard('jwt'))
 @Controller('api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {
@@ -18,7 +22,7 @@ export class UserController {
 
   @Get(':id')
   async findById(@Param('id') id: string): Promise<IUser> {
-    return  this.userService.findById(id)
+    return this.userService.findById(id)
   }
 
   @Post()
@@ -36,9 +40,5 @@ export class UserController {
     return this.userService.remove(id)
   }
 
-  /*@Get('/email/:email')
-  async findByEmail(@Param('email') email: string): Promise<IUser> {
-    return  this.userService.findByEmail(email)
-  }*/
 }
 

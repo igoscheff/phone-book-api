@@ -1,14 +1,16 @@
 import * as mongoose from 'mongoose'
 
 export const TokenSchema = new mongoose.Schema({
-  token: { type: String,
+  token: {
+    type: String,
     required: true,
     unique: true
   },
   uId: {
     type: mongoose.Types.ObjectId,
     required: true,
-    ref: 'User' },
+    ref: 'User',
+  },
   expireAt: {
     type: Date,
     required: true

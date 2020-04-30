@@ -1,12 +1,13 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { Module } from '@nestjs/common'
+import { MongooseModule } from '@nestjs/mongoose'
 
-import { UserModule } from './user/user.module';
-import { AuthModule } from './auth/auth.module';
-import { TokenModule } from './token/token.module';
-import { configModule } from './configure.root';
-import { MailModule } from './mail/mail.module';
-import { ContactModule } from './contact/contact.module';
+import { configModule } from './config.root'
+import { UserModule } from './user/user.module'
+import { AuthModule } from './auth/auth.module'
+import { TokenModule } from './token/token.module'
+import { MailModule } from './mail/mail.module'
+import { ContactModule } from './contact/contact.module'
+import { SearchModule } from './search/search.module'
 
 @Module({
   imports: [
@@ -17,9 +18,11 @@ import { ContactModule } from './contact/contact.module';
     AuthModule,
     TokenModule,
     MailModule,
-    ContactModule
+    ContactModule,
+    SearchModule,
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+}

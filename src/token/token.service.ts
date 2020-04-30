@@ -1,12 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { IUserToken } from './interfaces/user-token.interface';
-import { CreateUserTokenDto } from './dto/create-user-token.dto';
+import { Injectable } from '@nestjs/common'
+import { InjectModel } from '@nestjs/mongoose'
+import { Model } from 'mongoose'
+import { IUserToken } from './interfaces/user-token.interface'
+import { CreateUserTokenDto } from './dto/create-user-token.dto'
 
 @Injectable()
 export class TokenService {
-  constructor(@InjectModel('Token') private readonly tokenModel: Model<IUserToken>) {}
+  constructor(@InjectModel('Token') private readonly tokenModel: Model<IUserToken>) {
+  }
 
   async create(createUserTokenDto: CreateUserTokenDto): Promise<IUserToken> {
     const userToken = new this.tokenModel(createUserTokenDto)
@@ -18,10 +19,10 @@ export class TokenService {
   }
 
   async removeAll(uId: string): Promise<{ ok?: number, n?: number }> {
-    return await this.tokenModel.deleteMany({ uId });
+    return await this.tokenModel.deleteMany({ uId })
   }
 
   async exists(uId: string, token: string): Promise<boolean> {
-    return await this.tokenModel.exists({ uId, token });
+    return await this.tokenModel.exists({ uId, token })
   }
 }

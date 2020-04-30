@@ -1,38 +1,24 @@
 import {
   IsArray,
-  IsDate,
-  IsDateString,
-  IsEmail,
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
+  IsDateString, IsNotEmpty,
   IsOptional,
   IsString,
-  Matches,
 } from 'class-validator'
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
+import { ApiPropertyOptional } from '@nestjs/swagger'
 import { PhoneDto } from './phone.dto'
 import { EmailDto } from './email.dto'
 import { AddressDto } from './address.dto'
-import { IPhone } from '../interfaces/phone.interface'
-import { IEmail } from '../interfaces/email.interface'
-import { IAddress } from '../interfaces/address.interface'
 
-export class CreateContactDto {
-
-  /*@ApiPropertyOptional()
-  @IsString()
-  @IsOptional()
-  readonly uId?: string
+export class ContactDto {
 
   @ApiPropertyOptional()
   @IsString()
   @IsOptional()
-  readonly photoSrc?: string*/
+  photoSrc?: string
 
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   readonly firstName: string
 
   @ApiPropertyOptional()

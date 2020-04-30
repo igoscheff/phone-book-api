@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { IMailSandGridData } from './interfaces/mail.interface'
 import * as mailer from '@sendgrid/mail'
+import { IMailSandGridData } from './interfaces/mail.interface'
 
 @Injectable()
 export class MailService {
@@ -20,5 +20,4 @@ export class MailService {
       }
     }
   }
-
 }

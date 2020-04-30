@@ -1,13 +1,14 @@
-import { Module } from '@nestjs/common';
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
-import { UserModule } from '../user/user.module';
-import { TokenModule } from '../token/token.module';
-import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './jwt.strategy';
-import { PassportModule } from '@nestjs/passport';
-import { configModule } from '../configure.root';
-import { MailModule } from '../mail/mail.module';
+import { Module } from '@nestjs/common'
+import { JwtModule } from '@nestjs/jwt'
+import { PassportModule } from '@nestjs/passport'
+
+import { configModule } from '../config.root'
+import { JwtStrategy } from './jwt.strategy'
+import { UserModule } from '../user/user.module'
+import { TokenModule } from '../token/token.module'
+import { MailModule } from '../mail/mail.module'
+import { AuthController } from './auth.controller'
+import { AuthService } from './auth.service'
 
 @Module({
   imports: [
@@ -19,9 +20,10 @@ import { MailModule } from '../mail/mail.module';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1d' },
     }),
-    MailModule
+    MailModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy]
+  providers: [AuthService, JwtStrategy],
 })
-export class AuthModule {}
+export class AuthModule {
+}
