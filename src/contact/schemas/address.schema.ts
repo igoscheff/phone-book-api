@@ -3,16 +3,7 @@ import { addressTypeEnum } from '../enums/address-type.enum'
 import { countryEnum } from '../enums/country.enum'
 
 export const AddressSchema = new mongoose.Schema({
-  uId: {
-    type: mongoose.Types.ObjectId,
-    required: true,
-    ref: 'User',
-  },
-  contactId: {
-    type: mongoose.Types.ObjectId,
-    required: true,
-    ref: 'Contact'
-  },
+
   type: {
     type: String,
     enum: Object.values(addressTypeEnum),
@@ -33,5 +24,6 @@ export const AddressSchema = new mongoose.Schema({
   country: {
     type: String,
     enum: Object.values(countryEnum),
-  },
+  }
+
 })

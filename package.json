@@ -5,15 +5,11 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "engines": {
-    "node": "13.12.0",
-    "npm": "6.14.4"
-  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node dist/main",
+    "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -37,7 +33,6 @@
     "@nestjs/swagger": "^4.5.3",
     "@sendgrid/mail": "^7.0.1",
     "bcryptjs": "^2.4.3",
-    "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
