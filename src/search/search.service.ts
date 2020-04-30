@@ -7,7 +7,7 @@ import { SearchKeyDto } from './dto/search-key.dto'
 export class SearchService {
 
   async contactSearch(contacts: IContact[], { searchKey }: SearchKeyDto): Promise<IContact[]> {
-    const regexp = new RegExp(`${searchKey}`, 'g')
+    const regexp = new RegExp(`${searchKey.toLowerCase()}`, 'g')
 
     return contacts.filter(contact => {
       return this.nameCompare(contact.firstName, regexp, searchKey) ||
