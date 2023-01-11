@@ -33,7 +33,7 @@
     "@nestjs/swagger": "^4.5.3",
     "@sendgrid/mail": "^7.0.1",
     "bcryptjs": "^2.4.3",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "mongoose": "^5.9.10",
